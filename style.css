@@ -1,0 +1,55 @@
+/* Estilo para o corpo e fontes */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+}
+
+h1, h2 {
+    color: #343a40;
+}
+
+/* Estilo para o Hero Section */
+.hero {
+    background-image: linear-gradient(to right, #4e73df, #1cc88a);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* Formulário */
+#formContato input, #formContato textarea {
+    border-radius: 5px;
+}
+
+#formContato button {
+    border-radius: 5px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #343a40;
+    color: white;
+}
+
+/* Estilo para as seções */
+section {
+    margin-bottom: 50px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#sobre img {
+    border-radius: 10px;
+}
+
+/* Mensagem de sucesso */
+#mensagemSucesso {
+    font-size: 1.1rem;
+    padding: 10px;
+}
