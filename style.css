@@ -1,55 +1,460 @@
-/* Estilo para o corpo e fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f9;
-}
-
-h1, h2 {
-    color: #343a40;
-}
-
-/* Estilo para o Hero Section */
-.hero {
-    background-image: linear-gradient(to right, #4e73df, #1cc88a);
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.hero h1 {
-    font-size: 3rem;
-    font-weight: bold;
-}
-
-/* Formulário */
-#formContato input, #formContato textarea {
-    border-radius: 5px;
-}
-
-#formContato button {
-    border-radius: 5px;
-}
-
-/* Rodapé */
-footer {
-    background-color: #343a40;
-    color: white;
-}
-
-/* Estilo para as seções */
-section {
-    margin-bottom: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-#sobre img {
-    border-radius: 10px;
+/* ==================== NAVEGAÇÃO ==================== */
+.navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Mensagem de sucesso */
-#mensagemSucesso {
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+}
+
+.nav-link {
+    margin: 0 10px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #ffd700 !important;
+    transform: translateY(-2px);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z" fill="rgba(255,255,255,0.1)"></path></svg>') repeat-x;
+    background-position: 0 bottom;
+    animation: wave 15s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        background-position: 0 bottom;
+    }
+    100% {
+        background-position: 1200px bottom;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    animation: fadeInDown 0.8s ease;
+}
+
+.hero .lead {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    animation: fadeInUp 0.8s ease;
+}
+
+.btn-hero {
+    padding: 12px 40px;
     font-size: 1.1rem;
-    padding: 10px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 2px solid white;
+}
+
+.btn-hero:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-decoration: none;
+}
+
+/* ==================== ANIMAÇÕES ==================== */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== SEÇÕES GERAIS ==================== */
+section {
+    padding: 80px 0;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #333;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    border-radius: 2px;
+}
+
+/* ==================== SEÇÃO SOBRE ==================== */
+#sobre {
+    background: #f8f9fa;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.about-text h2::after {
+    left: 0;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.about-icon {
+    font-size: 4rem;
+    color: #667eea;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.about-text:hover .about-icon {
+    color: #764ba2;
+    transform: scale(1.1);
+}
+
+/* ==================== SEÇÃO SERVIÇOS ==================== */
+#servicos {
+    background: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-top: 4px solid #667eea;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-top-color: #764ba2;
+}
+
+.service-icon {
+    font-size: 3rem;
+    color: #667eea;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    color: #764ba2;
+    transform: scale(1.1) rotate(10deg);
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ==================== SEÇÃO CONTATO ==================== */
+.contact-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+#contato h2 {
+    color: white;
+}
+
+#contato h2::after {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.form-group label {
+    color: white;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 8px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.form-control::-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.2) inset;
+    -webkit-text-fill-color: white;
+}
+
+.btn-submit {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #333;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.alert-success {
+    background: rgba(76, 175, 80, 0.9);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    animation: slideIn 0.5s ease;
+    border-left: 4px solid #4CAF50;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== RODAPÉ ==================== */
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    border-top: 3px solid #667eea;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ==================== RESPONSIVIDADE ==================== */
+@media (max-width: 768px) {
+    .hero {
+        padding: 80px 0;
+        min-height: 450px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero .lead {
+        font-size: 1.2rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form {
+        padding: 30px 20px;
+    }
+
+    .nav-link {
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .lead {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .btn-hero {
+        padding: 10px 25px;
+        font-size: 0.95rem;
+    }
+
+    .service-card {
+        padding: 20px;
+    }
+
+    .contact-form {
+        padding: 20px 15px;
+    }
 }
